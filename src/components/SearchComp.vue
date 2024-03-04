@@ -1,8 +1,24 @@
-<script setup></script>
+<script setup>
+import {ref, watch} from "vue"
+const props = defineProps({
+  modelValue:[String, Number]
+  
+})
+const searchValue = ref(props.modelValue)
+const emit = defineEmits(['update', 'update:modelValue'])
+
+watch(searchValue, (newValue) => {
+  emit('update:modelValue', newValue)
+})
+const changeOption = (event) => {
+  searchValue.value = event.target.value
+}
+
+</script>
 
 <template>
   <div action="/" class="search-container">
-    <input type="text" class="search-input" placeholder="Поиск..." />
+    <input v-model="searchValue" @change="changeOption" type="text" class="search-input" placeholder="Поиск..." />
   </div>
 </template>
 
