@@ -23,11 +23,7 @@ const changeOption = (event) => {
 </template>
 
 <style scoped>
-.search-container {
-  position: relative;
-  width: 250px;
-  height: 24px;
-}
+
 
 .search-input {
   width: 100%;
@@ -37,7 +33,7 @@ const changeOption = (event) => {
   border: 1px solid #f3f3f3;
   background-color: transparent;
   outline: none; /* убираем рамку фокуса */
-  padding: 15px;
+  padding: 10px;
 }
 
 .search-input::placeholder {
@@ -46,6 +42,7 @@ const changeOption = (event) => {
 
 .search-input:focus::placeholder {
   color: transparent; /* убираем placeholder при фокусе */
+  
 }
 
 .search-container::before {

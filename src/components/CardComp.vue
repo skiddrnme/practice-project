@@ -7,12 +7,14 @@ defineProps({
 </script>
 
 <template>
-  <div class="card">
-    <img :src="book.imgSrc" alt="" width="150" />
-    <p class="book-name">{{ book.bookTitle }}</p>
-    <p class="book-name">{{ book.author }}</p>
-    <p>Цена:</p>
-    <p>{{ book.price }} руб.</p>
+  <div class="card" @click="$router.push(`book/${book.name}`)">
+    <img :src="book.img" alt="" width="150" />
+    <div class="card-info">
+      <p class="book-name">{{ book.name }}</p>
+      <!-- <p class="book-name">{{ book.author }}</p> -->
+      <p>Цена:</p>
+      <p style="font-weight: 700;">{{ book.price }} руб.</p>
+    </div>
   </div>
 </template>
 
@@ -26,12 +28,17 @@ defineProps({
   gap: 10px;
   border: 1px solid #f3f3f3;
   width: 250px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 40px;
   transition: transform 0.3s ease-in-out;
 }
 .card:hover {
   transform: scale(1.02);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.card-info{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 </style>
